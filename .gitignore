@@ -1,3 +1,2 @@
-./*
 !.gitkeep
-!*.jpg
+./images/**/*.jpg
