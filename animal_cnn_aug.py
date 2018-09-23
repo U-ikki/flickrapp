@@ -17,14 +17,16 @@ image_size = 50
 
 
 def main():
-	X_train, X_test, y_train, y_test = np.load("./animal.npy")
+	X_train, X_test, y_train, y_test = np.load("./animal_aug.npy")
 	X_train = X_train.astype("float") / 256 # 0-1の値のほうが計算がはやい
 	X_test = X_test.astype('float') / 256
 	y_train = np_utils.to_categorical(y_train, num_classes)
 	y_test = np_utils.to_categorical(y_test, num_classes)
 
+	# modelのトレーニング
 	model = model_train(X_train, y_train)
-	model_eval(model, X_test, y_test) # 評価
+	# modelの評価
+	model_eval(model, X_test, y_test)
 
 def model_train(X, y):
 	# モデル作成
@@ -70,7 +72,7 @@ def model_train(X, y):
 	model.fit(X, y, batch_size=32, epochs=50)
 
 	# モデルの保存
-	model.save('./anima_cnn.h5')
+	model.save('./animal_cnn_aug.h5')
 
 	return model
 
