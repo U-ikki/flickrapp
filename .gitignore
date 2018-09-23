@@ -1,2 +1,3 @@
 !.gitkeep
-./images/**/*.jpg
+*.jpg
+*.npy
